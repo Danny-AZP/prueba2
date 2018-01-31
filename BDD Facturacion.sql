@@ -39,3 +39,6 @@ CREATE TABLE DetalleFactura(
     idProducto INT NOT NULL,
     Cantidad INT NOT NULL,
     PRIMARY KEY (id));
+
+
+    HOLA MUNDO
