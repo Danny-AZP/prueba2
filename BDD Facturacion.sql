@@ -1,0 +1,41 @@
+CREATE DATABASE Facturacion DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE Facturacion;
+
+CREATE TABLE Producto(
+	id INT NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(225) NOT NULL,
+    precio DOUBLE NOT NULL,
+    PRIMARY KEY (id));
+    
+CREATE TABLE Cliente(
+    id INT NOT NULL AUTO_INCREMENT,
+	cedulaRUC VARCHAR(13) NOT NULL UNIQUE,
+    nombre VARCHAR(50) NOT NULL,
+    telefono VARCHAR(10) NOT NULL,
+    direccion VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NULL,
+    PRIMARY KEY (id));
+
+CREATE TABLE Empresa(
+    id INT NOT NULL AUTO_INCREMENT,
+	RUC VARCHAR(13) NOT NULL UNIQUE,
+    nombre VARCHAR(50) NOT NULL,
+    telefono VARCHAR(10) NOT NULL,
+    direccion VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NULL,
+    actividadComercial VARCHAR(400) NULL,
+    PRIMARY KEY (id));
+
+CREATE TABLE Factura(
+    id INT NOT NULL AUTO_INCREMENT,
+	idCliente INT NOT NULL,
+    idEmpresa INT NOT NULL,
+    Fecha DATETIME NOT NULL,
+    PRIMARY KEY (id));
+    
+CREATE TABLE DetalleFactura(
+    id INT NOT NULL AUTO_INCREMENT,
+	idFactura INT NOT NULL,
+    idProducto INT NOT NULL,
+    Cantidad INT NOT NULL,
+    PRIMARY KEY (id));
